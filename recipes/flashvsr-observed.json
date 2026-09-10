@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-10",
+  "case": "U01",
+  "format": "parameter record, not an executable UI workflow",
+  "model": {
+    "decode_vae": "none",
+    "proj_pt": "LQ_proj_in_v1.1.ckpt",
+    "tcd_encoder": "TCDecoder.ckpt",
+    "tiny_long": false,
+    "vae": "none",
+    "version": "1.1",
+    "dit": "diffusion_pytorch_model_streaming_dmd.safetensors_v1.1.safetensors",
+    "emb_pt": "posi_prompt.pth"
+  },
+  "sampler": {
+    "seed": 763052763,
+    "local_range": 11,
+    "cfg": 1,
+    "steps": 1,
+    "color_fix": true,
+    "width": 576,
+    "kv_ratio": 3.5,
+    "sparse_ratio": 2,
+    "full_tiled": true,
+    "fix_method": "wavelet",
+    "height": 1024,
+    "split_num": 233
+  },
+  "scale": 2,
+  "input_frames": 226,
+  "output_frames": 221,
+  "fps": 24,
+  "output_native_width": 1152,
+  "output_native_height": 2048,
+  "delivery_width": 1080,
+  "delivery_height": 1920,
+  "rh_coins": 43,
+  "rh_reported_task_seconds": 215
+}

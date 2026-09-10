@@ -1,0 +1,40 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>音乐影像实验室 · H3首版实物</title><style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#10141c;color:#e9edf5;font:16px/1.7 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1450px;margin:auto;padding:38px 24px}h1{font-size:40px;line-height:1.3;margin:16px 0}h2{font-size:25px}h3{font-size:18px;min-height:54px;margin:0 0 12px}a{color:#a8decf}a:hover{color:white}p{color:#c2cad7}small{color:#acb6c6}header{max-width:900px;margin-bottom:30px}.eyebrow{color:#a8decf;letter-spacing:2px}.notice{border-left:3px solid #a8decf;padding:12px 18px;background:#1b2430}.group,.stills{padding:24px;background:#191f2a;border:1px solid #303847;border-radius:16px;margin:26px 0}.head{display:flex;align-items:center;justify-content:space-between;gap:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:18px}article{background:#0f151f;padding:16px;border-radius:12px}video{width:100%;max-height:560px;aspect-ratio:9/16;object-fit:contain;background:black;border-radius:6px}button{background:#a8decf;border:0;color:#102520;border-radius:8px;padding:12px 18px;font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:4px}.stills .grid{grid-template-columns:repeat(4,minmax(0,1fr))}figure{margin:0}figure img{width:100%;display:block}figcaption{font-size:13px;padding-top:8px}footer{padding:12px 0 36px;color:#acb6c6}details{margin:18px 0}summary{cursor:pointer;color:#a8decf}@media(max-width:700px){main{padding:20px 14px}h1{font-size:29px}.group,.stills{padding:16px}.head{display:block}.head button{margin-bottom:16px}.stills .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style><main><header><div class="eyebrow">MUSIC VIDEO LAB · 2026-09-10</div><h1>先看实物，再说模型有多强</h1><p>同一段歌的生成、超分与原生尺寸对照；另看浅笑、大笑、三人和扶肩。九个短片来自已有研究，包含失败。</p><p><a href="README.md">项目说明</a> · <a href="docs/h3-study.md">完整研究结论</a> · <a href="docs/reproduce.md">复跑方法</a> · <a href="https://github.com/clarowang/music-video-lab">GitHub</a></p><p class="notice">72币＝29币H3生成＋43币独立FlashVSR任务。不是官方2K重生成，也未证明与190币基线同质量同可用率。唱歌沿用同一原曲，剧情静音。并排播放看观感，逐字口型请单独开声音看。</p></header><section class="group"><div class="head"><h2>唱歌</h2><button type="button">从头一起播放</button></div><div class="grid"><article><h3>轻量H3 · 原生</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/singing-native.png" src="assets/videos/singing-native.mp4"></video><p>29币，576×1024原生；用于看超分前的脸和饰物。</p>
+<small>D01 · 576×1024 · 24 fps · 221帧</small>
+<p><a href="assets/videos/singing-native.mp4">单独看视频</a> · <a href="assets/posters/singing-native.png">原尺寸截图（4.5秒）</a></p></article><article><h3>提高原生尺寸 · 普通放大至1080</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/singing-high.png" src="assets/videos/singing-high.mp4"></video><p>54币，864×1536生成后普通放大；它是另一次生成，表情和姿态也会变。</p>
+<small>D05 · 1080×1920 · 24 fps · 221帧</small>
+<p><a href="assets/videos/singing-high.mp4">单独看视频</a> · <a href="assets/posters/singing-high.png">原尺寸截图（4.5秒）</a></p></article><article><h3>轻量H3＋FlashVSR · 1080</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/singing-flash.png" src="assets/videos/singing-flash.mp4"></video><p>29＋43＝72币；先生成、再单独超分，最终普通缩小至1080。</p>
+<small>U01 · 1080×1920 · 24 fps · 221帧</small>
+<p><a href="assets/videos/singing-flash.mp4">单独看视频</a> · <a href="assets/posters/singing-flash.png">原尺寸截图（4.5秒）</a></p></article><article><h3>同日Wan＋InfiniteTalk＋FlashVSR</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/singing-wan.png" src="assets/videos/singing-wan.mp4"></video><p>190币，25fps；复用同段成品，保留原来的画面与黑边。</p>
+<small>WAN · 1080×1920 · 25 fps · 230帧</small>
+<p><a href="assets/videos/singing-wan.mp4">单独看视频</a> · <a href="assets/posters/singing-wan.png">原尺寸截图（4.5秒）</a></p></article></div></section><section class="group"><div class="head"><h2>表情</h2><button type="button">从头一起播放</button></div><div class="grid"><article><h3>浅笑</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/smile.png" src="assets/videos/smile.mp4"></video><p>16币。和大笑使用同图、同seed42，只改表情提示。</p>
+<small>E04 · 576×1024 · 24 fps · 158帧</small>
+<p><a href="assets/videos/smile.mp4">单独看视频</a> · <a href="assets/posters/smile.png">原尺寸截图（3.0秒）</a></p></article><article><h3>大笑</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/laugh.png" src="assets/videos/laugh.mp4"></video><p>16币。笑的幅度有差别，但一条不能代表稳定可控。</p>
+<small>E05 · 576×1024 · 24 fps · 158帧</small>
+<p><a href="assets/videos/laugh.mp4">单独看视频</a> · <a href="assets/posters/laugh.png">原尺寸截图（3.0秒）</a></p></article></div></section><section class="group"><div class="head"><h2>剧情与失败</h2><button type="button">从头一起播放</button></div><div class="grid"><article><h3>失败：第二遍把假字幕描清</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/fake-subtitles.png" src="assets/videos/fake-subtitles.mp4"></video><p>50币。首遍已有类似字的杂纹，二遍加重；公开的是最终片。</p>
+<small>E02 · 864×1536 · 24 fps · 158帧</small>
+<p><a href="assets/videos/fake-subtitles.mp4">单独看视频</a> · <a href="assets/posters/fake-subtitles.png">原尺寸截图（1.5秒）</a></p></article><article><h3>三人反应：仍然多转了头</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/three-person.png" src="assets/videos/three-person.mp4"></video><p>22币。右侧本应只动眼睛，却也转头；不能算三人精准调度通过。</p>
+<small>G01 · 576×1024 · 24 fps · 158帧</small>
+<p><a href="assets/videos/three-person.mp4">单独看视频</a> · <a href="assets/posters/three-person.png">原尺寸截图（3.0秒）</a></p></article><article><h3>近侧手轻扶肩</h3><video controls playsinline muted preload="metadata"
+poster="assets/posters/shoulder.png" src="assets/videos/shoulder.mp4"></video><p>21币。有接触与停留候选；准确接触点与手指仍应看动态。</p>
+<small>G05 · 576×1024 · 24 fps · 158帧</small>
+<p><a href="assets/videos/shoulder.mp4">单独看视频</a> · <a href="assets/posters/shoulder.png">原尺寸截图（3.0秒）</a></p></article></div></section><section class="stills"><h2>同一时刻，再看脸和耳环</h2><p>统一显示大小，点击可看原尺寸。原生与FlashVSR来自同一条生成；高原生和Wan是其他生成结果，姿态不完全相同。更清楚是否更好看，请分部位判断。</p><div class="grid"><figure><a href="assets/posters/singing-native.png"><img loading="lazy" src="assets/posters/singing-native.png" alt="轻量H3 · 原生"></a><figcaption>轻量H3 · 原生 · 4.5秒</figcaption></figure><figure><a href="assets/posters/singing-high.png"><img loading="lazy" src="assets/posters/singing-high.png" alt="提高原生尺寸 · 普通放大至1080"></a><figcaption>提高原生尺寸 · 普通放大至1080 · 4.5秒</figcaption></figure><figure><a href="assets/posters/singing-flash.png"><img loading="lazy" src="assets/posters/singing-flash.png" alt="轻量H3＋FlashVSR · 1080"></a><figcaption>轻量H3＋FlashVSR · 1080 · 4.5秒</figcaption></figure><figure><a href="assets/posters/singing-wan.png"><img loading="lazy" src="assets/posters/singing-wan.png" alt="同日Wan＋InfiniteTalk＋FlashVSR"></a><figcaption>同日Wan＋InfiniteTalk＋FlashVSR · 4.5秒</figcaption></figure></div></section><details><summary>我们能控制到哪里？</summary><p>能保存实际参数、固定素材与种子、改节点连接、取出中间片、查回结果与费用。平台控制模型部署、显存、排队和计费；具体嘴形、手指和表情仍要看输出。本仓库的工具只负责离线准备与检查，尚无跨账号验收的一键RH应用。</p></details><footer>节点与配方来源：MiniMax、T8star-Aix及相关开源作者；本项目负责场景适配和实物比较。<a href="docs/credits.md">来源说明</a> · <a href="assets/LICENSE.md">示例媒体使用范围</a>。本页不含统计脚本。</footer></main><script>
+const videos=[...document.querySelectorAll('video')];
+document.querySelectorAll('.group button').forEach(button=>button.addEventListener('click',async()=>{
+const group=button.closest('.group');const local=[...group.querySelectorAll('video')];
+videos.forEach(v=>v.pause());local.forEach((v,i)=>{v.currentTime=0;v.muted=i!==0;});
+const results=await Promise.allSettled(local.map(v=>v.play()));
+button.textContent=results.some(r=>r.status==='rejected')?'请分别点击播放器':'重新从头一起播放';
+}));
+videos.forEach(v=>v.addEventListener('play',()=>videos.filter(x=>x.closest('.group')!==v.closest('.group')).forEach(x=>x.pause())));
+</script></html>

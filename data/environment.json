@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-10",
+  "execution_platform": "RunningHub",
+  "instance": "default / 24G",
+  "gpu_model": null,
+  "server_node_commit": null,
+  "T8_source_review_commit": "e4ff8607a982ecea22d68347efc4bcc356b996ea",
+  "tested_source_classes": [
+    "BasicGuider",
+    "CLIPLoader",
+    "CR Prompt Text",
+    "ComfyMathExpression",
+    "LoadAudio",
+    "LoadImage",
+    "LoraLoaderBypassModelOnly",
+    "MiniMaxH3AVDecodeT8",
+    "MiniMaxH3AudioConditioningT8",
+    "MiniMaxH3DualClockSamplerT8",
+    "MiniMaxH3MemoryEfficientSageAttentionPatch",
+    "ModelAttentionBackend",
+    "PrimitiveFloat",
+    "RandomNoise",
+    "SamplerCustomAdvanced",
+    "SolAttnMiniMax",
+    "UNETLoader",
+    "VAELoader",
+    "VHS_VideoCombine"
+  ],
+  "public_graph_note": "Pure text/duration/math helper nodes are folded into literals. No RH cross-account execution test during publication.",
+  "local_tools": {
+    "python": "3.10+",
+    "ffmpeg": "required",
+    "ffprobe": "required",
+    "python_third_party_packages": []
+  }
+}
