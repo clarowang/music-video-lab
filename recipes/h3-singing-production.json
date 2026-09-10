@@ -1,0 +1,32 @@
+{
+  "schema": "music-video-lab-h3-production-v1",
+  "version": "native864-ffn4-neutral-minimal-tail-v1",
+  "observed_date": "2026-09-10",
+  "base_recipe": "recipes/h3-light.json",
+  "width": 864,
+  "height": 1536,
+  "fps": 24,
+  "steps": 8,
+  "seed": 42,
+  "ffn": {"enabled": true, "chunks": 4, "min_tokens": 8192},
+  "ffn_position": "after LoraLoaderBypassModelOnly, before MiniMaxH3DualClockSamplerT8",
+  "ffn_source": "https://github.com/Saganaki22/ComfyUI-sol-attn/blob/930a4d6e432ff8b8ed5e30ff2f72519b92d69bdf/minimax.py",
+  "prompt_file": "recipes/prompts/singing-neutral.txt",
+  "prompt_sha256_utf8_stripped": "3de661cbd1705d74eb197e99d3a87f64bc55231203b55ad099ec63a242827a14",
+  "generation_length": "ceil(samples * 24 / sample_rate), then the smallest covering 17n+5",
+  "delivery": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "frames": "ceil(samples * 30 / sample_rate)",
+    "resize": "ordinary proportional Lanczos",
+    "video_codec": "libx264",
+    "crf": 16,
+    "audio": "unaltered timeline of a separately prepared original-song PCM WAV slice; AAC 320k encoding",
+    "ai_upscale": false,
+    "ai_interpolation": false,
+    "beauty_filter": false
+  },
+  "evidence": "data/h3-production-batch-002.json",
+  "scope": "Single adult singer, portrait 9:16. CLI accepts 2–15 seconds; this batch is approximately 9.5–11.3 seconds. No universal memory or lip-sync guarantee."
+}

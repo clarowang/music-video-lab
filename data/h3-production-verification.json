@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-10",
+  "python": "3.12",
+  "ffmpeg": "7.1",
+  "offline_tests_passed": 19,
+  "actual_ffn4_submission_graphs_compared": 8,
+  "equivalent_after_folding_literal_helpers": 8,
+  "excluded_from_graph_comparison": [
+    "execution-service image/audio references",
+    "output filename prefix"
+  ],
+  "real_media_trials": 1,
+  "trial_output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "frames": 304,
+    "tail_fraction": "0",
+    "sha256": "66b40351b79ba239c8edf544716ab33c8d99d12e266322b4267895a77d1104b5",
+    "byte_identical_to_prior_private_delivery": true
+  },
+  "full_decode_and_frame_timestamps": "PASS",
+  "original_audio_zero_offset_correlation": 0.9999500546151543,
+  "new_paid_generations": 0,
+  "new_media_published": 0,
+  "cross_account_generation_verified": false,
+  "local_gpu_generation_verified": false,
+  "human_quality_automatically_verified": false,
+  "note": "Packaged export verification. The real input video/audio are not redistributed; the automated tests use generated synthetic media."
+}

@@ -32,5 +32,24 @@
     "ffmpeg": "required",
     "ffprobe": "required",
     "python_third_party_packages": []
+  },
+  "production_update": {
+    "date": "2026-09-10",
+    "additional_source_classes": [
+      "MiniMaxH3ChunkFeedForward"
+    ],
+    "source_repository": "https://github.com/Saganaki22/ComfyUI-sol-attn",
+    "source_review_commit": "930a4d6e432ff8b8ed5e30ff2f72519b92d69bdf",
+    "server_node_commit": null,
+    "observed_instances": [
+      "default / 24G with FFN4",
+      "plus / 48G baseline"
+    ],
+    "local_packaging_validation": {
+      "python": "3.12",
+      "ffmpeg": "7.1",
+      "third_party_python_packages": []
+    },
+    "note": "Current observations and API reconstruction, not a lockfile for cloud deployment."
   }
 }
