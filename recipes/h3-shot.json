@@ -1,0 +1,21 @@
+{
+  "schema": "music-video-lab-shot-v1",
+  "version": "h3-shot-native864-ffn4-v1",
+  "base": "recipes/h3-singing-production.json",
+  "default_quality": "delivery",
+  "qualities": {
+    "delivery": {"width": 864, "height": 1536},
+    "draft": {"width": 576, "height": 1024}
+  },
+  "modes": {
+    "reference-audio": {"task_type": "Ref2VA", "first_frame": false, "primary_audio_ordinal": 1},
+    "first-frame-audio": {"task_type": "Hybrid", "first_frame": true, "primary_audio_ordinal": 1},
+    "first-frame-silent": {"task_type": "Hybrid", "first_frame": true, "primary_audio_ordinal": 0}
+  },
+  "fps": 24,
+  "steps": 8,
+  "seed": 42,
+  "native_crf": 19,
+  "scope": "Portrait shots, 2-15 seconds per sampling window. A supplied PCM audio file defines duration in every mode. Silence does not guarantee closed mouths. Other aspect ratios, reference video and continuation remain separate experiments.",
+  "evidence_level": "Core derived from paid production graphs. Hybrid and silent-reference configurations compared offline with prior submitted graphs. No new paid or cross-account validation for this packaging release."
+}
