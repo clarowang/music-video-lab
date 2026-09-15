@@ -1,0 +1,55 @@
+{
+  "source": "workflows/h3-singing-production.api.json",
+  "class_types": [
+    "BasicGuider",
+    "CLIPLoader",
+    "LoadAudio",
+    "LoadImage",
+    "LoraLoaderBypassModelOnly",
+    "MiniMaxH3AVDecodeT8",
+    "MiniMaxH3AudioConditioningT8",
+    "MiniMaxH3ChunkFeedForward",
+    "MiniMaxH3DualClockSamplerT8",
+    "MiniMaxH3MemoryEfficientSageAttentionPatch",
+    "ModelAttentionBackend",
+    "RandomNoise",
+    "SamplerCustomAdvanced",
+    "SolAttnMiniMax",
+    "UNETLoader",
+    "VAELoader",
+    "VHS_VideoCombine"
+  ],
+  "model_inputs": [
+    {
+      "node_id": "1",
+      "class_type": "UNETLoader",
+      "field": "unet_name",
+      "value": "DasiwaMinimaxH3_dasiwaREF2VAHybridV1_0.safetensors"
+    },
+    {
+      "node_id": "5",
+      "class_type": "LoraLoaderBypassModelOnly",
+      "field": "lora_name",
+      "value": "minimax_h3_turbo_4step_10ErosMax_test4_pruned_curveproj1025_exp_v001-T8.safetensors"
+    },
+    {
+      "node_id": "6",
+      "class_type": "CLIPLoader",
+      "field": "clip_name",
+      "value": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    },
+    {
+      "node_id": "7",
+      "class_type": "VAELoader",
+      "field": "vae_name",
+      "value": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    {
+      "node_id": "8",
+      "class_type": "VAELoader",
+      "field": "vae_name",
+      "value": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  ],
+  "current_service_availability": "not checked on recipient account"
+}

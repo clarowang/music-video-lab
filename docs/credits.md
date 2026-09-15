@@ -21,3 +21,13 @@
 `workflows/`是按已测节点接口与配置重建的API图，折叠了纯文本／数值辅助节点、重新编号。它没有复制RH账号绑定、原作者完整画布、平台回执或第三方节点实现。重建图与历史图核心输入及连线做离线等价核验；本次公开整理没有在另一个账号或本地GPU上重新付费运行。
 
 T8仓库已有分镜、歌曲分段和MV编排说明。本项目不以“别人没有分镜”或“原创了所有节点”为卖点。未实测的高级修脸与VocalLock不写成现有能力。
+
+## 2026-09-15：整首制作与字幕模块
+
+便携的 `studio.py`、`rh.py`、模板和教程，来自本项目先行交接版，正式并入公共仓库后直接调用这里的核心，取消包内 `engine/` 副本。原有 H3 工具/配方保持 ab6e8f2 时的字节；每个新批次记录实际工具和依赖配方哈希。整首组装依据实际制作中的连续原曲、共享采样切点与局部接缝方法重新实现；不是把私有生产队列换个文件名。
+
+原词字幕部分使用 [Qwen3-ASR 官方项目](https://github.com/QwenLM/Qwen3-ASR) 的 ForcedAligner 模型和 [shumoLR 的 ComfyUI 节点](https://github.com/shumoLR/Comfyui_SynVow_Qwen3ASR/blob/main/aligner.py)，实测入口为 [user_lmrwtdvh 的公开图](https://www.runninghub.ai/post/2026261585597042689)。另外两个显示/存储组件为 [ComfyUI-Custom-Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts) 的 ShowText 和 [ComfyUI-Easy-Use](https://github.com/yolain/ComfyUI-Easy-Use) 的 saveText。我们提供所见 8 节点配置、原词/时间转换、异常标记和单样本实测，不分发这些节点实现或模型权重。RH 实例字段与上游版本可能不同，使用方需要核对实际接口。
+
+RH 单任务接入器依据官方[高级创建](https://www.runninghub.cn/runninghub-api-doc-cn/api-425749013)、[上传](https://www.runninghub.cn/runninghub-api-doc-cn/api-425749007)、[V2 查询](https://www.runninghub.cn/runninghub-api-doc-cn/api-425767306)说明整理，接口字段于2026-09-15核对；新接入器仅通过模拟测试。完整验证边界见[这一版的检查记录](starter/VALIDATION.md)。
+
+新的离线演示只有程序生成的几何画面与测试音。它证明文件链能跑，不作为 H3 表演、字幕模型效果或人物形象展示。

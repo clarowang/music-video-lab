@@ -1,8 +1,9 @@
 # 许可范围
 
-- `tools/`、`tests/`、`workflows/`、`recipes/`：GPL-3.0-or-later，见根目录 `LICENSE`。Copyright (C) 2026 music-video-lab contributors。允许按GPL条件使用、修改、分发，包括商业使用。
+- `tools/`、`tests/`、`workflows/`、`recipes/`、`templates/` 的代码、工作流和配置模板：GPL-3.0-or-later，见根目录 `LICENSE`。Copyright (C) 2026 music-video-lab contributors。允许按GPL条件使用、修改、分发，包括商业使用。
 - 本项目原创文字说明：CC BY 4.0，署名“音乐影像实验室 / clarowang”，注明修改。许可全文：https://creativecommons.org/licenses/by/4.0/ 。第三方引文与品牌不因此重新授权。
 - `assets/`中的视频和图片，以及从中提取的声音、画面：**不适用代码或文档许可**。请读 [素材使用说明](assets/LICENSE.md)。
+- `examples/offline/` 新造的几何演示视频，以及由 `studio.py demo` 制作的几何图/合成测试音：CC0-1.0，见[演示说明](examples/offline/README.md)。此项不改变 `assets/` 中真实样片的许可。
 - `data/`：本项目整理的实验事实和参数可引用；请保留日期、样本范围和限制，不把结果表当成模型的通用保证。
 - 上游模型、权重、节点、依赖包各自遵循原许可。本仓库未打包模型权重或第三方节点代码；使用本工具不替代对上游许可的核对。
 

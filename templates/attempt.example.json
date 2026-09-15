@@ -1,0 +1,22 @@
+{
+  "shot_id": "01",
+  "attempt_id": "01-r01",
+  "intent": "本镜要验证什么",
+  "job_sha256": null,
+  "actual_graph_sha256": null,
+  "engine_version": null,
+  "task_id": null,
+  "platform_status": "NOT_SUBMITTED",
+  "instance_type": null,
+  "fee_rh_coins": null,
+  "active_minutes": null,
+  "machine_wait_minutes": null,
+  "user_minutes": null,
+  "output_path": null,
+  "output_sha256": null,
+  "technical_validation": "pending",
+  "human_review": "pending",
+  "accepted_seconds": null,
+  "failure_or_deviation": null,
+  "next_step": "待确定本批任务与授权"
+}

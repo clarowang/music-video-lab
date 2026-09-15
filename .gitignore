@@ -6,3 +6,7 @@ __pycache__/
 !.env.example
 local-inputs/
 local-output/
+
+# Recipient projects, credentials, generated media and receipts
+work/
+*.download-part

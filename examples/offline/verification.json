@@ -1,0 +1,22 @@
+{
+  "schema": "starter-assembly-v1",
+  "engine_verification": {
+    "sha256": "e38938b638644a8f6098f7c630c61a05b6f23fddd6cfec809c75a4f5deef6aad",
+    "full_decode": "PASS",
+    "frame_timestamps": "PASS",
+    "original_mix_zero_offset_correlation": 0.9999985338831008,
+    "timing": {
+      "audio_samples": 296000,
+      "audio_sample_rate": 48000,
+      "audio_duration_fraction": "37/6",
+      "delivery_frames": 185,
+      "delivery_duration_fraction": "37/6"
+    },
+    "human_lip_sync_and_aesthetic_review": "NOT_PERFORMED_BY_THIS_TOOL"
+  },
+  "elapsed_seconds": 4.782,
+  "transition_frames": 8,
+  "transition_note": "Optional blend uses cloned edge frames only inside the seam; lip-sync may look worse there.",
+  "human_review": "pending",
+  "input_media": "Synthetic geometric pictures and generated tones; no H3 calls."
+}

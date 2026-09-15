@@ -1,0 +1,9 @@
+{
+  "execution_allowed": false,
+  "max_new_tasks": 1,
+  "approved_rh_coins": 0,
+  "job_sha256": "替换为本镜job.json的SHA256",
+  "instance_type": "default",
+  "user_authorization_note": "",
+  "note": "必须来自接收者对本镜的实际授权。金额只是审计记录，不是平台消费硬上限；本脚本没有批量队列和全账户预算管理。"
+}

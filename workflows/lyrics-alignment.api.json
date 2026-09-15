@@ -1,0 +1,105 @@
+{
+  "12": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "__UPLOAD_AUDIO__",
+      "audioUI": ""
+    },
+    "_meta": {
+      "title": "Load Audio"
+    }
+  },
+  "15": {
+    "class_type": "Qwen3ForcedAlign",
+    "inputs": {
+      "language": "Chinese",
+      "text": "__ORIGINAL_LYRICS__",
+      "audio": [
+        "12",
+        0
+      ],
+      "aligner": [
+        "16",
+        0
+      ],
+      "segment_by_sentence": false
+    },
+    "_meta": {
+      "title": "Qwen3 Forced Align"
+    }
+  },
+  "16": {
+    "class_type": "Qwen3ForcedAlignerLoader",
+    "inputs": {
+      "model_name": "Qwen3-ForcedAligner-0.6B",
+      "unload_after": false
+    },
+    "_meta": {
+      "title": "Qwen3 ForcedAligner Loader"
+    }
+  },
+  "17": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {
+      "text": [
+        "15",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "19": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {
+      "text": [
+        "15",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "20": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {
+      "text": [
+        "15",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "21": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {
+      "text": [
+        "15",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "22": {
+    "class_type": "easy saveText",
+    "inputs": {
+      "file_name": "alignment-public-example",
+      "file_extension": "txt",
+      "text": [
+        "15",
+        0
+      ],
+      "overwrite": true,
+      "output_file_path": ""
+    },
+    "_meta": {
+      "title": "Save Text"
+    }
+  }
+}

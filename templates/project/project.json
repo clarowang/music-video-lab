@@ -1,0 +1,29 @@
+{
+  "schema": "music-video-starter-v1",
+  "title": "我的音乐视频",
+  "mix": "inputs/mix.wav",
+  "vocal": "inputs/vocal.wav",
+  "subtitles": "inputs/lyrics.srt",
+  "subtitles_clock": "song",
+  "vocal_alignment_reviewed": false,
+  "shots": [
+    {
+      "id": "01",
+      "start_sample": 48000,
+      "end_sample": 193600,
+      "image": "images/01.png",
+      "prompt": "prompts/01.txt",
+      "mode": "reference-audio",
+      "drive": "vocal"
+    },
+    {
+      "id": "02",
+      "start_sample": 193600,
+      "end_sample": 344000,
+      "image": "images/02.png",
+      "prompt": "prompts/02.txt",
+      "mode": "first-frame-silent",
+      "drive": "silence"
+    }
+  ]
+}
