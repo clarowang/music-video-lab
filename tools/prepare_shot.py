@@ -10,6 +10,7 @@ from pathlib import Path
 from build_h3_api import ROOT
 from prepare_singing import build_production
 from singing_timing import timing_plan, wav_info
+from h3_audio import require_pcm16
 
 
 def recipe():
@@ -187,6 +188,7 @@ def main():
             raise ValueError('Build requires audio-wav, audio-role, image, audio, prompt and output.')
         if (args.mode == 'first-frame-silent') != (args.audio_role == 'silence'):
             raise ValueError('Silence role and silent input mode must be selected together.')
+        require_pcm16(args.audio_wav)
         info = wav_info(args.audio_wav)
         if args.audio_role == 'silence':
             require_silence(args.audio_wav)

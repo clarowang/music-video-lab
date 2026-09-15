@@ -30,11 +30,11 @@ def engine_snapshot():
     # Hash the shared public implementation, including local modifications.
     # An in-flight batch keeps its own frozen snapshot; upgrading the checkout is explicit.
     files = ['tools/studio.py', 'tools/build_h3_api.py', 'tools/prepare_shot.py', 'tools/prepare_singing.py',
-             'tools/singing_timing.py', 'tools/finalize_singing.py',
+             'tools/singing_timing.py', 'tools/finalize_singing.py', 'tools/h3_audio.py',
              'recipes/h3-light.json', 'recipes/h3-shot.json', 'recipes/h3-singing-production.json',
              'workflows/h3-singing-production.api.json']
     return {'repository': 'https://github.com/clarowang/music-video-lab',
-            'recipe': 'starter-2026-09-15',
+            'recipe': 'starter-2026-09-15', 'audio_boundary_version': 'h3-pcm16-native-audio-v1',
             'files': {p: sha256(ROOT / p) for p in files}}
 
 
@@ -205,7 +205,7 @@ def deliver(batch, sid, raw):
         if sha256(j/name) != expected:
             raise ValueError('Frozen job input changed: ' + name)
     out = batch/'clips'/f'{sid}.mp4'
-    result = finalize(raw, j/'mix.wav', out, check_only=out.exists())
+    result = finalize(raw, j/'mix.wav', out, check_only=out.exists(), drive=j/'drive.wav')
     return dict(id=sid, output=str(out), result=result)
 
 
@@ -402,7 +402,8 @@ def demo(output):
     batch=root/'batch'; prepare(project,batch)
     for s in shots:
         j=batch/'jobs'/s['id']; job=read(j/'job.json'); frames=job['timing']['generation_frames']
-        ff(['-loop','1','-framerate','24','-i',j/job['image'],'-an','-frames:v',str(frames),
+        ff(['-loop','1','-framerate','24','-i',j/job['image'],'-i',j/'drive.wav',
+            '-map','0:v:0','-map','1:a:0','-c:a','aac','-frames:v',str(frames),
             '-vf',"drawbox=x=40+20*sin(t):y=180:w=90:h=90:color=white@0.6:t=fill,setsar=1",
             '-c:v','libx264','-threads','4','-preset','veryfast','-crf','24','-pix_fmt','yuv420p','-r','24',j/'native.mp4'])
         deliver(batch,s['id'],j/'native.mp4')

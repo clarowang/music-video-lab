@@ -94,7 +94,8 @@ class DeliveryTests(unittest.TestCase):
         cls.folder = Path(cls.temp.name)
         cls.raw, cls.mix = cls.folder / 'raw.mp4', cls.folder / 'mix.wav'
         subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i',
-            'testsrc2=size=864x1536:rate=24', '-frames:v', '49', '-c:v', 'libx264',
+            'testsrc2=size=864x1536:rate=24', '-f', 'lavfi', '-i',
+            'sine=frequency=733:sample_rate=48000', '-frames:v', '49', '-c:a', 'aac', '-c:v', 'libx264',
             '-threads', '2', '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', str(cls.raw)],
             check=True, capture_output=True)
         subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i',

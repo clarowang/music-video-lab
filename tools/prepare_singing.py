@@ -8,6 +8,7 @@ from pathlib import Path
 
 from build_h3_api import ROOT, build
 from singing_timing import timing_plan, wav_info
+from h3_audio import require_pcm16
 
 
 def build_production(image, audio, samples, rate, prompt=None):
@@ -37,6 +38,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     try:
+        require_pcm16(args.vocal_wav)
         info = wav_info(args.vocal_wav)
         prompt = args.prompt.read_text(encoding='utf8').strip() if args.prompt else None
         graph = build_production(args.image, args.audio, info['samples'], info['sample_rate'], prompt)

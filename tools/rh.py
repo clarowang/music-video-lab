@@ -14,6 +14,7 @@ import sys
 from urllib.parse import urlsplit
 import requests
 from studio import read, write, sha256, inspect_graph, local
+from h3_audio import require_pcm16
 
 
 def now():
@@ -63,6 +64,7 @@ def check_job(job):
         if sha256(local(job,name))!=digest: raise ValueError('Frozen input changed: '+name)
     graph=read(local(job,spec['graph']))
     inspect_graph(graph,'delivery')
+    require_pcm16(local(job,spec['drive']))
     return spec,graph
 
 

@@ -17,6 +17,7 @@ from fractions import Fraction
 from pathlib import Path
 
 from singing_timing import sha256, timing_plan, wav_info
+from h3_audio import check_native_audio
 
 
 def run(command):
@@ -40,7 +41,7 @@ def track_duration(stream):
     return int(stream['duration_ts']) * Fraction(stream['time_base'])
 
 
-def check_raw(path, plan):
+def check_raw(path, plan, drive=None):
     data = probe(path)
     video = next(s for s in data['streams'] if s['codec_type'] == 'video')
     if ((video['width'], video['height']) != (864, 1536)
@@ -54,7 +55,10 @@ def check_raw(path, plan):
         raise ValueError('Original picture duration is too short or inconsistent; no freeze-tail repair.')
     if video_pts(path, video) != [Fraction(i, 24) for i in range(frames)]:
         raise ValueError('Original video has a nonzero start or irregular frame timestamps.')
-    return {'frames': frames, 'fps': 24, 'width': 864, 'height': 1536, 'sha256': sha256(path)}
+    # Check the conditioning track before remuxing can hide a broken native signal.
+    audio = check_native_audio(path, drive)
+    return {'frames': frames, 'fps': 24, 'width': 864, 'height': 1536,
+            'sha256': sha256(path), 'native_audio': audio}
 
 
 def pcm(path, plan):
@@ -115,7 +119,7 @@ def check_final(output, mix, plan):
             'human_lip_sync_and_aesthetic_review': 'NOT_PERFORMED_BY_THIS_TOOL'}
 
 
-def finalize(video, mix, output, check_only=False):
+def finalize(video, mix, output, check_only=False, drive=None):
     video, mix, output = Path(video), Path(mix), Path(output)
     if output.suffix.lower() != '.mp4':
         raise ValueError('Output must have an .mp4 extension.')
@@ -123,7 +127,7 @@ def finalize(video, mix, output, check_only=False):
         raise ValueError('Output must differ from the original video and audio.')
     info = wav_info(mix)
     plan = timing_plan(info['samples'], info['sample_rate'])
-    raw = check_raw(video, plan)
+    raw = check_raw(video, plan, drive)
     if check_only:
         return check_final(output, mix, plan)
     receipt = output.with_suffix('.delivery.json')
@@ -155,6 +159,7 @@ def finalize(video, mix, output, check_only=False):
         if raw['sha256'] != sha256(video) or info['sha256'] != sha256(mix):
             raise ValueError('An input changed during processing; output not published.')
         report = {'version': 'native864-ffn4-neutral-minimal-tail-v1',
+                  'audio_boundary_version': 'h3-pcm16-native-audio-v1',
                   'raw': raw, 'mix_sha256': info['sha256'], 'final': final,
                   'elapsed_seconds': round(time.perf_counter() - started, 3),
                   'note': 'Ordinary resize/frame duplication; AAC audio encoding. No AI enhancement or lip-sync scoring.'}
@@ -175,9 +180,10 @@ def main():
     parser.add_argument('--mix', type=Path, required=True, help='Exact matching original-song PCM WAV slice')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--check', action='store_true', help='Validate an existing output without encoding')
+    parser.add_argument('--drive', type=Path, help='Submitted PCM16 drive for zero-offset native audio validation')
     args = parser.parse_args()
     try:
-        report = finalize(args.video, args.mix, args.output, args.check)
+        report = finalize(args.video, args.mix, args.output, args.check, drive=args.drive)
         print(json.dumps(report, ensure_ascii=False, indent=2))
     except subprocess.CalledProcessError as error:
         parser.exit(2, error.stderr.decode('utf8', errors='replace')[-2500:] + '\n')
