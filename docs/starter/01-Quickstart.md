@@ -36,7 +36,16 @@ python -m venv .venv
 .venv\Scripts\python.exe tools/studio.py doctor
 ```
 
-后续命令里的 `python` 可换成 `.venv\Scripts\python.exe`；macOS/Linux 为 `.venv/bin/python`。当前完整便携演练在 Windows 完成，其他系统未在本轮执行。`doctor` 不查账号、不提交RH、不读取密钥内容。
+后续命令里的 `python` 可换成 `.venv\Scripts\python.exe`；macOS/Linux 为 `.venv/bin/python`。2026-09-28 在 macOS 15 / Apple Silicon 通过 doctor、185 帧离线演示和 57 项离线测试；这不代表新账户付费生成已验证。`doctor` 不查账号、不提交RH、不读取密钥内容。
+
+macOS 可使用独立环境（FFmpeg/FFprobe 需已在 PATH）：
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python tools/studio.py doctor
+.venv/bin/python tools/studio.py demo --out work/my-first-demo
+```
 
 ## 先跑不收费的演示
 
